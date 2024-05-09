@@ -1,64 +1,127 @@
 public class Player {
-    String name = "";
-    boolean hasArrow;
-    boolean gotGold = false;
-    int row;
-    int col;
-    int score = 0;
+    String name = ""; // name of the player
+    boolean hasArrow; // indicates if the player has an arrow
+    boolean gotGold = false; // indicates if the player has collected gold
+    int row; // row coordinate of the player's position on the board
+    int col; // column coordinate of the player's position on the board
+    int score = 0; // player's score
 
-    public Player(String name){
+    /**
+     * Constructs a new player with the specified name.
+     * 
+     * @param name the name of the player
+     */
+    public Player(String name) {
         this.name = name;
-        hasArrow = true;
+        hasArrow = true; // player starts with an arrow
     }
 
-    public String getName(){
+    /**
+     * Gets the name of the player.
+     * 
+     * @return the name of the player
+     */
+    public String getName() {
         return this.name;
     }
 
-    public boolean hasArrow(){
+    /**
+     * Checks if the player has an arrow.
+     * 
+     * @return true if the player has an arrow, false otherwise
+     */
+    public boolean hasArrow() {
         return hasArrow;
     }
 
-    public void shootArrow(){
+    /**
+     * Simulates the player shooting an arrow.
+     * The player loses the arrow and incurs a score penalty.
+     */
+    public void shootArrow() {
         hasArrow = false;
-        this.takeFromScore(10);
+        this.takeFromScore(10); // penalty for shooting an arrow
     }
 
-    public void grab(){ 
+    /**
+     * Marks that the player has grabbed the gold.
+     */
+    public void grab() {
         gotGold = true;
     }
 
-    public boolean gotGold(){
+    /**
+     * Checks if the player has grabbed the gold.
+     * 
+     * @return true if the player has grabbed the gold, false otherwise
+     */
+    public boolean gotGold() {
         return gotGold;
     }
 
-    public void addToScore(int s){
+    /**
+     * Adds points to the player's score.
+     * 
+     * @param s the points to add
+     */
+    public void addToScore(int s) {
         score += s;
     }
 
-    public void takeFromScore(int s){
+    /**
+     * Deducts points from the player's score.
+     * 
+     * @param s the points to deduct
+     */
+    public void takeFromScore(int s) {
         score -= s;
     }
 
-    public int getScore(){
+    /**
+     * Gets the player's current score.
+     * 
+     * @return the player's score
+     */
+    public int getScore() {
         return score;
     }
 
-    public void setPosition(int r, int c){
+    /**
+     * Sets the position of the player on the board.
+     * 
+     * @param r the row coordinate
+     * @param c the column coordinate
+     */
+    public void setPosition(int r, int c) {
         this.row = r;
         this.col = c;
     }
 
-    public int getRow(){
+    /**
+     * Gets the row coordinate of the player's position.
+     * 
+     * @return the row coordinate
+     */
+    public int getRow() {
         return this.row;
     }
 
-    public int getCol(){
+    /**
+     * Gets the column coordinate of the player's position.
+     * 
+     * @return the column coordinate
+     */
+    public int getCol() {
         return this.col;
     }
 
-    public String toString(){ 
+    /**
+     * Overrides the toString method to represent the player as a string.
+     * 
+     * @return a string representation of the player
+     */
+    public String toString() {
         String str = "";
-        return str + this.name;
+        return str + this.name; // returns the player's name
     }
 }
